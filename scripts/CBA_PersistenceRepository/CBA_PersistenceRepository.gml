@@ -10,8 +10,18 @@ function PersistenceRepository(_rootDir, _logger) constructor {
     rootDir = is_undefined(_rootDir) ? "saves" : string(_rootDir);
 
     _ensureDir = function() {
-        if (!directory_exists(rootDir)) directory_create(rootDir);
-    };
+    if (!directory_exists(rootDir)) directory_create(rootDir);
+	    _cleanupTemps();
+	};
+	
+	_cleanupTemps = function() {
+	    var fn = file_find_first(rootDir + "/*.tmp", fa_none);
+	    while (fn != "") {
+	        file_delete(rootDir + "/" + fn);
+	        fn = file_find_next();
+	    }
+	    file_find_close();
+	};
 
     _slotPath = function(slotId) {
         // file contents: { "snapshotId": "...", "updatedUtc": "...", "schemaVersion": n }
@@ -33,17 +43,33 @@ function PersistenceRepository(_rootDir, _logger) constructor {
     };
 
     _writeJsonFile = function(path, obj) {
-        _ensureDir();
-        var f = file_text_open_write(path);
-        if (f < 0) {
-            logger.error("Failed to open for write: " + path);
-            return false;
-        }
-        file_text_write_string(f, json_stringify(obj));
-        file_text_close(f);
-        return true;
-    };
+		_ensureDir();
 
+		var tmp = path + ".tmp";
+
+		// 1) Write JSON to temp file
+		var f = file_text_open_write(tmp);
+		if (f < 0) {
+		    logger.error("Failed to open for write: " + tmp);
+		    return false;
+		}
+		file_text_write_string(f, json_stringify(obj));
+		file_text_close(f);
+
+		// 2) Replace target atomically-ish (best we can in GML)
+		if (file_exists(path)) {
+		    file_delete(path);
+		}
+		if (!file_rename(tmp, path)) {
+		    // If rename fails, try cleanup; leave original intact if it existed
+		    if (file_exists(tmp)) file_delete(tmp);
+		    logger.error("Failed to rename temp file into place: " + tmp + " -> " + path);
+		    return false;
+		}
+
+		return true;
+	};
+	
     _readJsonFile = function(path) {
         _ensureDir();
         if (!file_exists(path)) return undefined;

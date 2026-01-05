@@ -8,10 +8,12 @@
     {"name":"Setup","order":3,"path":"folders/Assets/Libraries/GMTL/Setup.yy",},
     {"name":"UnsortedScripts","order":2,"path":"folders/Assets/UnsortedScripts.yy",},
     {"name":"Bundles","order":29,"path":"folders/Bundles.yy",},
+    {"name":"Slice0","order":25,"path":"folders/Bundles/BundleA/Slice0.yy",},
     {"name":"Tests","order":28,"path":"folders/Tests.yy",},
     {"name":"BundleA","order":1,"path":"folders/Tests/BundleA.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"o_boot","order":3,"path":"objects/o_boot/o_boot.yy",},
     {"name":"o_gmtl_demo_draw","order":2,"path":"objects/o_gmtl_demo_draw/o_gmtl_demo_draw.yy",},
     {"name":"o_gmtl_demo_timer","order":3,"path":"objects/o_gmtl_demo_timer/o_gmtl_demo_timer.yy",},
     {"name":"r_gmtl_demo","order":5,"path":"rooms/r_gmtl_demo/r_gmtl_demo.yy",},
