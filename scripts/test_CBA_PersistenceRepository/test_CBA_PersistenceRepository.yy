@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"test_CBA_PersistenceRepository",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"test_CBA_PersistenceRepository",
+  "parent":{
+    "name":"BundleA",
+    "path":"folders/Tests/BundleA.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"CBA_Logger",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"CBA_Logger",
+  "parent":{
+    "name":"BundleA",
+    "path":"folders/Bundles/BundleA.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

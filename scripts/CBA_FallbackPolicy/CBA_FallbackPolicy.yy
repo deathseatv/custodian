@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"CBA_FallbackPolicy",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"CBA_FallbackPolicy",
+  "parent":{
+    "name":"BundleA",
+    "path":"folders/Bundles/BundleA.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

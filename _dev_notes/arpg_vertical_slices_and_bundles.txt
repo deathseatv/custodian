@@ -1,0 +1,213 @@
+VERTICAL SLICES (WITH REQUIRED SYSTEMS)
+
+Slice 0 — Project boot + baseline persistence
+- Save/load framework (world-state snapshot; robust against crash/quit semantics)
+- Scene/room framework (hub as root)
+- Global state manager (player/Wisp identity, current inhabited character id)
+- Debug hooks: reset save, dump state, reload state
+
+Slice 1 — Hub navigation + inhabit character
+- Hub spatial navigation
+- Character gallery representation (statues/husks)
+- Inhabit interaction + confirmation prompt
+- Controlled-entity swap (Wisp ↔ character)
+- Basic UI prompts + audio cues
+
+Slice 2 — One portal slot + open/enter/exit (arena)
+- Portal slot system (Empty/Open)
+- Portal instance creation (single arena map)
+- Transition pipeline hub↔portal
+- Portal-scoped persistence (store portal world state separate from hub)
+
+Slice 3 — Click-to-move + highlighting intent
+- Input → intent resolver (ground vs interactable vs item vs enemy)
+- Mouse hover highlight + selection priority rules
+- Pathing/steering (simple first; grid-aware later)
+- Movement collision using 2D logical space (projection is visual only)
+
+Slice 4 — One enemy type + click-to-attack
+- Enemy entity + simple AI (approach/attack)
+- Combat loop: attack animation → hit frame → damage instance (discrete)
+- Targeting in 2D logical space (not screen projection)
+- Health/death for enemies + audio cues
+
+Slice 5 — Pickup item drop + shared hub stash
+- Item entity in world + pickup interaction
+- Inventory containers (character inventory + hub/shared storage)
+- Item persistence inside portal + across quit/reload
+- Basic UI: inventory panel + tooltip
+
+Slice 6 — Character death resolution + Wisp return
+- Death detection + death event pipeline
+- Life counter decrement rules
+- Control handoff to Wisp in hub
+- Audio/flash effect + simultaneous kill handling
+
+Slice 7 — Portal Dormant state + dropped item persistence
+- Portal states: Open/Dormant
+- Drop-on-death into portal world
+- Portal locking rules + UI indication in hub
+- “Explicit portal closure destroys contents” rule enforcement
+
+Slice 8 — Return-to-hub channel + mid-expedition character switch + portal stasis
+- Channeling action + interruption conditions (combat/aggro/damage-recent)
+- Character switching restrictions
+- Portal stasis mode (no AI, no DOT ticking)
+- Resume portal state exactly
+
+Slice 9 — Environmental hazard tick damage
+- Area effect volumes + overlap detection (2D logical)
+- DOT tick scheduler (paused in stasis)
+- Combat feedback (audio/visual)
+
+Slice 10 — Multi-portal slots (4–5) + portal management UI
+- Portal slot array (Empty/Open/Dormant)
+- Hub UI for slot selection, open, close (destructive)
+- Persistent storage per portal instance (including dormant contents)
+
+Slice 11 — Gear equip/unequip + basic stats effects (gear power externalized)
+- Equipment slots + equip rules
+- Stat aggregation pipeline (gear → derived combat stats)
+- Shared storage constraints (moving gear between characters)
+
+Slice 12 — Sockets + “construct-capable slots” framework (no real constructs yet)
+- Item schema: base type, sockets, construct-capable flag
+- UI for sockets
+- Validation scaffold: “one primary construct per item” rule
+
+Slice 13 — Primary construct: one active ability bound to key
+- Construct definition format (data table + parameters)
+- Crafting UI (hub)
+- Ability binding system (quickcast keys)
+- Minimal cooldown/resource placeholder (if any)
+- Irreversibility enforcement (initial lock)
+
+Slice 14 — Modifier constructs (passive modifiers)
+- Modifier stacking rules
+- Event hooks on abilities (on-hit, on-cast, on-kill, etc.)
+- UI to inspect construct + modifiers
+
+Slice 15 — Mastery v1 (use-based tracking + stat sheet visibility)
+- Mastery trackers + persistence
+- Weapon type taxonomy
+- Stats sheet UI with scrollable explanations
+- Threshold gating for certain construct behaviors (minimal gating OK)
+
+Slice 16 — Retirement + legacy output + prestige
+- Retirement flow + gallery state changes
+- Legacy generation (knowledge/material/artifact; placeholder tables first)
+- Prestige calculation from mastery
+- New character creation impacted by prestige (proficiency acceleration)
+
+Slice 17 — Portal crafting + danger axes + qualitative visualization
+- Crafting recipes + material sinks
+- Danger axis model + modifier application
+- Portal “overall intensity” + axis motif rendering (no numbers)
+- Reward scaling hooks (placeholder OK)
+
+Slice 18 — Portal variants v1: boss-only and treasure vault (arena-based)
+- Portal archetype enum + generation rules (still fixed arenas)
+- Boss encounter controller / vault loot controller
+- Completion conditions + exit flow
+
+Slice 19 — Procedural/multi-zone portal worlds
+- World generation pipeline
+- Zone transitions / multi-zone structure
+- Spawn tables and environment rules driven by danger axes
+
+Slice 20 — Long-term structure polish: blaze-of-glory incentives + meta-unlocks
+- Risk tagging + yield multipliers (prestige/legacy quality)
+- Meta-unlock registry (knowledge legacy expands system access)
+- End-of-run summary hooks (minimal UI first)
+
+
+SYSTEM BUNDLES (WITH CORE SYSTEMS)
+
+Bundle A — Persistence & world-state backbone
+Slices: 0, 2, 5, 7, 8, 10, 15, 16, 17, 19
+Core systems:
+- Save/load snapshotting per hub + per-portal instance
+- Entity serialization/deserialization for all persisted objects
+- Versioning/migrations for save compatibility over time
+- Integrity checks (missing refs, invalid ids, corrupted data fallback behavior)
+- Debug tooling: reset save, dump/inspect state, force reload, spawn test data
+
+Bundle B — Core interaction model (intent-based input)
+Slices: 3, 4, 5, 6, 8, 9
+Core systems:
+- Highlight-under-cursor selection + priority rules
+- Input → command/intent resolver (Move/Attack/Interact/Pickup)
+- Movement/pathing/steering in 2D logical space
+- 2D logical targeting (not screen projection)
+- Interaction affordances (hover feedback, cursors, outlines)
+
+Bundle C — Combat foundation
+Slices: 4, 6, 9, 13, 14
+Core systems:
+- Discrete hit-frame attack pipeline (animation → hit frame → damage instance)
+- Damage application + resist/mitigation hooks (even if placeholder initially)
+- Tick damage support for hazard overlaps
+- Death resolution (immediate lethal; simultaneous kill cases)
+- Combat events bus (for audio, VFX, modifiers, UI)
+
+Bundle D — Hub + character lifecycle
+Slices: 1, 2, 6, 8, 10, 16
+Core systems:
+- Hub navigation + character gallery objects
+- Inhabit/uninhabit flow (control ownership)
+- Character lifecycle state machine (active, inactive, dead, retired)
+- Life counter rules and retirement triggers
+- Hub UI prompts/menus for character/portal management
+
+Bundle E — Portal lifecycle + stasis rules
+Slices: 2, 7, 8, 10, 18, 19
+Core systems:
+- Portal slots + portal instance registry
+- Portal states (Empty/Open/Dormant) + transitions
+- Dormant recovery rules (items remain; slot locked)
+- Explicit destructive closure (destroy remaining contents)
+- Stasis: pause AI/DOT/simulation when not inside portal; resume exactly
+
+Bundle F — Items, inventory, and equipment
+Slices: 5, 11, 12, 13, 14
+Core systems:
+- Item schema (base type, stats, flags, sockets)
+- World drops + pickup + ownership transfer to inventories
+- Inventory containers (character, hub/shared) + move/stack rules
+- Equipment slots + equip/unequip validation
+- Stat aggregation (gear → derived stats used by combat)
+
+Bundle G — Constructs & ability binding
+Slices: 12, 13, 14, 15
+Core systems:
+- Construct-capable slot framework + “one primary per item”
+- Construct definitions (data-driven parameters) + embedding rules
+- Crafting/embedding UI flows (hub)
+- Quickcast binding to primary constructs
+- Modifier framework: passive stacks + hooks into ability/combat events
+- Irreversibility/commitment enforcement + inspection UI
+
+Bundle H — Progression meta (mastery, prestige, legacy)
+Slices: 15, 16, 20
+Core systems:
+- Use-based mastery tracking (per character, per weapon type)
+- Mastery UI (informational stat sheet + explanations)
+- Prestige calculation derived from mastery on retirement
+- Legacy outputs: knowledge/material/artifact distribution systems
+- Meta-unlock registry and gating (what “knowledge legacy” unlocks)
+
+Bundle I — Portal crafting, danger axes, content scaling
+Slices: 17, 18, 19, 20
+Core systems:
+- Portal recipe/crafting system + material economy hooks
+- Danger axes model (multi-axis parameters) + modifiers
+- Qualitative visualization (composite intensity + axis motifs; no numbers)
+- Content scaling hooks (spawn tables, rewards, archetype rules)
+- Portal archetypes (hostile, boss-only, vault, special-rule) + controllers
+
+Bundle J — Audio (cross-cutting)
+Slices: 1 onward
+Core systems:
+- Audio event routing (UI, combat, death, pickup, portal actions)
+- Placeholder → final asset swapping support
+- Basic mixing categories (UI/SFX/ambient) if desired early

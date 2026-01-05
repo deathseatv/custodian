@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"CBA_SerializerRegistry",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"CBA_SerializerRegistry",
+  "parent":{
+    "name":"BundleA",
+    "path":"folders/Bundles/BundleA.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

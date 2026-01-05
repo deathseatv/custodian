@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"CBA_WorldState",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"CBA_WorldState",
+  "parent":{
+    "name":"BundleA",
+    "path":"folders/Bundles/BundleA.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

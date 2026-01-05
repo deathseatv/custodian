@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"test_CBA_SnapshotManager",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"test_CBA_SnapshotManager",
+  "parent":{
+    "name":"BundleA",
+    "path":"folders/Tests/BundleA.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

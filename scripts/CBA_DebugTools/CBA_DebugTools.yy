@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"CBA_DebugTools",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"CBA_DebugTools",
+  "parent":{
+    "name":"BundleA",
+    "path":"folders/Bundles/BundleA.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

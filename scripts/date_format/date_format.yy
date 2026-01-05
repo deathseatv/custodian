@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"date_format",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"date_format",
+  "parent":{
+    "name":"UnsortedScripts",
+    "path":"folders/Assets/UnsortedScripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

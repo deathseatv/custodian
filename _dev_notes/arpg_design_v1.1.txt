@@ -1,0 +1,319 @@
+GAME OVERVIEW
+The game is a single-player, legacy-driven ARPG with no traditional character levels.
+Progression is defined by player decisions, preparation, and irreversible commitments,
+not by experience points or linear power curves.
+The player is a persistent meta-entity that deploys characters into dangerous worlds.
+Camera/feel target: Diablo-like interaction model, top-down isometric, real-time.
+
+TARGET PLATFORM
+PC (Steam)
+Keyboard + mouse only (no controller support for now)
+Target resolution: 640x360
+No modding support planned
+Data-driven content desired (monsters/items/etc. from data tables)
+Expected concurrent dynamic entities:
+Typical: 20–30
+Hard ceiling: ~100 (excluding tiles/background)
+
+PLAYER IDENTITY
+The player exists as a non-combat meta-entity called the Wisp.
+The Wisp:
+Cannot enter combat or portals
+Cannot die
+Exists only in the hub
+Represents continuity across characters
+Characters are vessels inhabited by the Wisp.
+Characters are tools, histories, and investments, not the player itself.
+
+CAMERA AND CONTROLS
+Perspective: Top-down isometric
+Combat: Real-time
+Control scope: Single controlled entity (one character)
+Future idea (out of scope): Optional AI ally Wisp post-story
+
+INPUT MODEL
+Core interaction: Highlight-under-cursor determines click intent (Diablo-style)
+Enemy highlighted:
+Click attacks or move-to-attack
+Item highlighted:
+Click moves to pick up
+Interactable highlighted:
+Click moves to interact
+Ground highlighted:
+Click moves to position
+Input density (initial): One primary action at a time
+Possible extensions:
+Chorded inputs (Ctrl+click / Ctrl+key)
+Click-drag or hold behaviors
+
+HUB STRUCTURE (WISP HUB)
+The game boots directly into the Wisp hub.
+There is no main menu.
+The hub contains:
+A gallery of all characters (active, wounded, retired)
+A fixed number of portal slots (4–5)
+Crafting and preparation interfaces
+The hub is safe, persistent, and outside all danger.
+All strategic decisions are made in the hub.
+
+HUB NAVIGATION AND INHABITATION
+The hub is navigated spatially.
+Characters are represented as statues/husks.
+Interaction flow:
+Left-click husk to approach
+Prompt: “Inhabit this husk?” (Yes / No)
+On Yes: Player inhabits the character
+Crafting is handled via UI (not diegetic stations).
+Time does not pass in the hub.
+
+CHARACTERS
+Characters:
+Have finite lives
+Have use-based growth (no levels)
+Develop mastery through repeated actions
+Can die, retire, and leave legacy
+Specialization emerges naturally through use and equipment.
+Characters cooperate indirectly via shared hub resources.
+
+LIVES AND DEATH
+Characters have a limited number of lives.
+A life is lost only on death during an expedition.
+Quitting the game never costs a life.
+Crashes and interruptions are never punished.
+When lives reach zero:
+Character can no longer be deployed
+Forced retirement occurs
+Character becomes a legacy figure
+
+EXPEDITIONS
+An expedition begins when a character enters a portal.
+An expedition ends when:
+The character exits safely
+The character dies
+The player explicitly closes the portal instance
+Failure conditions:
+No failure without death except closing the portal
+Forced exits only via future story events (not baseline)
+Partial success:
+Completing some objectives and exiting is valid
+
+PORTALS
+Portals are consumable world instantiations.
+Portals are crafted using materials.
+Portals occupy limited hub slots.
+Portals are not fast travel.
+Opening a portal is a commitment.
+The hub is the only town.
+
+PORTAL VARIANTS (PLACEHOLDERS)
+General hostile expedition portals
+Boss-only portals
+Treasure vault portals
+Rule-shift / special-rule portals
+
+PORTAL STATES
+Empty:
+No portal in slot
+Open:
+Portal active and explorable
+Dormant:
+A character died inside
+Slot locked until resolved
+
+PORTAL PERSISTENCE
+If a character dies in a portal:
+Portal becomes Dormant
+All dropped items remain inside
+Slot cannot be overwritten
+Items remain recoverable while portal exists.
+Closing a portal destroys all remaining contents.
+Portal closure is always an explicit decision.
+
+CHARACTER SWITCHING DURING EXPEDITIONS
+Players may return to the hub and switch characters mid-expedition.
+Restrictions:
+Cannot switch during combat or active aggro
+Cannot switch if damage was taken recently
+Return-to-hub is a channeling action and can be interrupted
+Switching does not grant free healing or cooldown resets.
+Inactive characters are in stasis.
+Enables specialist solutions and logistics runs.
+
+ITEMS AND GEAR
+Power is externalized into gear, not characters.
+Items:
+Have bases (weapon, armor, etc.)
+Have sockets
+Can host constructs
+Gear is shared across characters via the hub.
+Dropped gear persists while the portal exists.
+
+ITEM RECOVERY
+On character death:
+Items drop in the portal world
+Items are not automatically lost
+Another character may recover them.
+Recovery is risky but never forced.
+
+CONSTRUCTS
+Constructs are crafted spell-like systems embedded into items.
+Primary constructs provide active abilities.
+Constructs are mostly irreversible once embedded.
+Scaling occurs via materials, refinement, and commitment.
+Progression favors new behaviors over infinite numbers.
+
+CONSTRUCT TYPES
+Primary Construct:
+One per item
+Defines core active behavior
+Provides a bindable active ability
+Modifier Constructs:
+Multiple per item
+Passive only
+Modify triggers, conditions, scaling, or side effects
+
+CONSTRUCT FAILURE / INSTABILITY
+Constructs do not inherently misfire or backfire.
+Instability is an optional modifier category (e.g., high power with drawbacks).
+
+EQUIPMENT CONSTRUCT SCOPE
+Initial target: 4 construct-capable equipment slots
+Possible expansion: Up to 8
+Each primary construct can be bound to a quickcast key.
+
+MASTERY SYSTEM
+Mastery is use-based and passive.
+Any character can use any weapon at a basic level.
+Mastery improves expression, not baseline usability.
+Mastery is per character and per weapon type.
+Additional mastery lines may exist (e.g., construct proficiency).
+Mastery does not decay.
+No hard cap:
+Early mastery unlocks mechanics
+Late mastery unlocks passive numeric bonuses
+Some construct behaviors require mastery thresholds.
+
+MASTERY VISIBILITY
+Mastery is visible on the character stats sheet.
+Stats sheet is informational only (no point allocation).
+Includes scrollable explanations of masteries and stats.
+
+PORTAL ACCESS (NO TIERS)
+No level or tier requirements.
+Portals defined by multi-axis danger profiles.
+Access gated by cost, preparation, and survivability.
+
+DANGER AXES
+Enemy density
+Burst lethality
+Attrition pressure
+Resistance skew
+Punishment severity
+Recovery scarcity
+Environmental hostility
+Axes are independent and non-linear.
+
+DANGER AXES ROLE
+Danger axes act as world generation parameters.
+Other generation parameters may drive AI behavior.
+
+PORTAL VISUALIZATION
+Single composite visual intensity represents overall risk.
+Qualitative motifs represent individual danger axes.
+No numbers or success prediction are shown.
+
+PLAYER-SELECTED DIFFICULTY
+Difficulty is chosen during portal creation.
+Players may add modifiers increasing danger axes.
+Higher danger increases:
+Rewards
+Prestige yield
+Risk
+Failure is attributable to player choice.
+
+CHARACTER-RELATIVE PERCEPTION
+Portals are absolute.
+Characters perceive strain relative to strengths.
+Only partial, axis-specific strain signals are shown.
+No aggregate difficulty verdict is given.
+
+TWINKING AND EARLY SKIPPING
+Gear sharing is allowed.
+Portal slots are limited.
+High-risk portals displace low-risk ones.
+Skipping early content is allowed but costly.
+
+SAVE / PERSISTENCE MODEL
+Persistent world-state model (Minecraft-like).
+On quit/crash/reload:
+Player resumes exact previous state
+No punishment for interruptions
+Expedition state is persistent by default.
+Portal closure remains explicit and destructive.
+
+RETIREMENT
+Characters may retire voluntarily or at zero lives.
+Retirement is never deletion.
+Retired characters remain visible in the gallery.
+
+LEGACY SYSTEM
+On retirement, legacy is distributed via:
+Knowledge Legacy (crafting unlocks, constructs, system access)
+Material Legacy (partial rare material retention)
+Artifact Legacy (distilled items → blueprints/shards/heirlooms)
+Legacy scales with investment and risk.
+
+PRESTIGE SYSTEM
+Prestige modifies how quickly new characters gain proficiency.
+Derived from retiring character’s mastery.
+Prestige amplifies continuity; it is not a reset mechanic.
+
+BLAZE OF GLORY INCENTIVE
+High-risk actions near end-of-life:
+Increase prestige yield
+Improve legacy quality
+Failure still produces value.
+Success produces more.
+
+LONG-TERM PLAY STRUCTURE
+Hours:
+Tactical combat and immediate decisions
+Days:
+Crafting goals and portal planning
+Weeks:
+Character specialization and region mastery
+Months:
+Prestige cycles and meta-unlocks
+Years (optional):
+System expansion without invalidating legacy
+
+NARRATIVE APPROACH
+Game functions without explicit lore or dialogue.
+Story emerges from deaths, recoveries, retirements, and legacy.
+Characters are husks.
+The Wisp is the constant.
+The world explains itself through systems.
+Ending summary:
+The player defeats an apparent antagonist, glimpses a higher abstraction layer where both Wisps are reduced to objects, and returns—aware that progression was never about escape, but participation.
+
+CORE DESIGN THESIS
+Progress is defined by decisions, not numbers.
+Risk is chosen, not imposed.
+Failure creates new gameplay.
+Characters matter.
+Legacy outlives any single run.
+
+DEVELOPMENT WORKFLOW NOTE
+Slices come first.
+Categories are derived by grouping slices by shared systems.
+Goal: Build systems that unlock the maximum number of slices sequentially.
+
+FIRST IDEAL VERTICAL SLICE (REFERENCE)
+Hub navigation and inhabit character
+One open portal slot
+Enter portal instance
+Click-to-move and click-to-attack
+One enemy type
+One interactable or pickup
+Exit portal back to hub
+Persistent state on quit/reload

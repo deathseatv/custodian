@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"test_CBA_smoke",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"test_CBA_smoke",
+  "parent":{
+    "name":"BundleA",
+    "path":"folders/Tests/BundleA.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

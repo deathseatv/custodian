@@ -1,0 +1,73 @@
+DESIGN SUPPLEMENT
+This document supplements the original ARPG design file and prior supplements.
+It records firm decisions made in response to pre-slice boundary questions.
+Any system not mentioned here remains unchanged.
+
+COMBAT DAMAGE MODEL (DECISION)
+Damage resolution uses a hybrid model (Type C).
+Primary damage:
+Discrete attack events
+Attack animation → hit frame → damage instance
+Secondary damage:
+Continuous / tick-based damage from overlapping effects
+Examples include environmental hazards (fire, poison clouds, etc.)
+Design intent:
+Clear, readable combat events with selective area-based pressure
+
+COLLISION AUTHORITY AND ENTITY SOLIDITY (DECISION)
+Collision is evaluated in a 2D top-down logical space.
+This logical space is projected to isometric for rendering only.
+Entity solidity:
+Determined per-entity via a solidity flag
+Default behavior:
+Fully solid entities cannot overlap
+Exceptions:
+Non-solid entities may overlap if flagged
+Movement and collision calculations:
+Performed in 2D top-down space
+Visual isometric projection does not affect collision logic
+
+TARGETING AND HIT DETECTION (DECISION)
+Target selection:
+Uses logical 2D space, not raw screen-space projection
+Prevents incorrect highlighting of visually foreground entities
+Melee attacks:
+Target-locked abstractions
+Projectiles:
+Hitbox-based collision detection
+
+DEATH RESOLUTION (DECISION)
+Death resolves immediately upon receiving lethal damage.
+On character death:
+Screen flashes white briefly (approx. 0.25–0.5 seconds)
+Control returns immediately to the Wisp
+Simultaneous death:
+Both sides may kill each other in the same frame
+
+PORTAL WORLD STRUCTURE – EARLY SLICES (DECISION)
+Early vertical slices use single arena-style portal spaces.
+Purpose:
+Integrate core mechanics before procedural generation
+Procedural or multi-zone worlds are deferred to later slices.
+
+ENEMY PERSISTENCE AND STASIS (DECISION)
+Within a portal:
+Enemies persist nearly exactly
+Position, health, and state are preserved
+When player exits portal or returns to hub:
+Portal entities enter stasis
+No AI updates
+No damage-over-time ticking
+No simulation progression
+Design rationale:
+Avoid simulating multiple active portals simultaneously
+Maintain fairness and predictability for recovery runs
+Future consideration (non-binding):
+Multiplayer may require selective portals to remain active
+
+AUDIO SCOPE (DECISION)
+Audio is in scope from early vertical slices onward.
+Each slice should include relevant placeholder or final audio cues
+Combat hits
+Deaths
+UI interactions

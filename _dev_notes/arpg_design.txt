@@ -1,0 +1,241 @@
+GAME OVERVIEW
+	The game is a single-player, legacy-driven RPG with no traditional character levels.
+	Progression is defined by player decisions, preparation, and irreversible commitments,
+	not by experience points or linear power curves.
+	The player is a persistent meta-entity that deploys characters into dangerous worlds.
+
+PLAYER IDENTITY
+	The player exists as a non-combat meta-entity called the Wisp.
+	The Wisp:
+		Cannot enter combat or portals
+		Cannot die
+		Exists only in the hub
+		Represents continuity across characters
+	Characters are vessels inhabited by the Wisp.
+	Characters are tools, histories, and investments, not the player itself.
+
+HUB STRUCTURE (WISP HUB)
+	The game boots directly into the Wisp hub.
+	There is no main menu.
+	The hub contains:
+		A gallery of all characters (active, wounded, retired)
+		A fixed number of portal slots (4–5)
+		Crafting and preparation interfaces
+	The hub is safe, persistent, and outside all danger.
+	The hub is the place where all strategic decisions are made.
+
+CHARACTERS
+	Characters:
+		Have finite lives
+		Have use-based growth (no levels)
+		Develop mastery through repeated actions
+		Can die, retire, and leave legacy
+	Each character specializes naturally through use and equipment.
+	Characters cooperate indirectly through shared hub resources and goals.
+
+LIVES AND DEATH
+	Characters have a limited number of lives.
+	A life is lost only when a character dies during an expedition.
+	Quitting the game never costs a life.
+	Crashes and real-life interruptions are never punished.
+	When lives reach zero:
+		The character cannot be deployed again
+		The character must be retired (forced retirement)
+		The character becomes a legacy figure
+
+EXPEDITIONS
+	An expedition begins when a character enters a portal.
+	An expedition ends when:
+		The character exits safely
+		The character dies
+	Expeditions are the only context where risk applies.
+	Quitting mid-expedition pauses the state and resumes on reload.
+
+ITEMS AND GEAR
+	Power is externalized into gear, not characters.
+	Items:
+		Have bases (weapon, armor, etc.)
+		Have sockets
+		Can host constructs
+	Gear is shared across characters via the hub.
+	Gear dropped in the world persists while its portal exists.
+
+CONSTRUCTS
+	Constructs are crafted spell-like systems embedded into items.
+	Constructs do not grant new buttons; they modify existing actions.
+	Constructs are mostly irreversible once embedded.
+	Constructs scale via materials, refinement, and commitment.
+	Diminishing returns exist, but progression shifts into new behaviors instead of infinite numeric growth.
+
+CONSTRUCT TYPES
+	Primary Construct
+		One per item
+		Defines the item’s core active behavior
+		Examples: fire burst on hit, defensive pulse on block
+	Modifier Constructs
+		Multiple per item
+		Passive only
+		Modify triggers, conditions, scaling, or side effects
+	Construct economies are split between primary and modifier constructs.
+
+MASTERY SYSTEM
+	Mastery is use-based and passive.
+	Mastery improves expression, not baseline usability.
+	Any character can use any weapon at a basic level.
+	Mastery unlocks:
+		Timing windows
+		Recovery cancels
+		Ripostes
+		Advanced interactions
+	Some construct behaviors require mastery thresholds to fully activate.
+
+PORTALS
+	Portals are consumable world instantiations.
+	Portals are crafted using materials.
+	Portals occupy limited slots in the hub.
+	Portals are not fast travel.
+	Opening a portal is a commitment.
+
+PORTAL STATES
+	Empty
+		No portal in the slot
+	Open
+		Portal is active and explorable
+	Dormant
+		Portal where a character died
+		Slot is locked until resolved
+
+PORTAL PERSISTENCE
+	If a character dies in a portal:
+		The portal becomes Dormant
+		All items dropped remain inside
+		The slot cannot be overwritten
+	Items remain recoverable as long as the portal exists.
+	Closing a portal destroys everything still inside.
+	Portal closure is always an explicit player decision.
+
+ITEM RECOVERY
+	When a character dies:
+		Their items drop in the portal world
+		They are not automatically lost
+	Another character may be deployed to recover them.
+	Recovery is risky and intentional.
+	Repeated failures increase pressure but never force loss.
+
+PORTAL ACCESS (NO TIERS)
+	There are no portal tiers or level requirements.
+	Portals are defined by multi-axis danger profiles.
+	New characters are not forbidden from dangerous areas,
+	but are implicitly gated by cost, preparation, and survivability.
+
+DANGER AXES
+	Each portal has an absolute danger profile composed of axes such as:
+		Enemy density
+		Burst lethality
+		Attrition pressure
+		Resistance skew
+		Punishment severity
+		Recovery scarcity
+		Environmental hostility
+	Axes are independent and non-linear.
+	There is no single difficulty stat.
+
+PORTAL VISUALIZATION
+	Portals have:
+		A single composite visual intensity (color, turbulence, distortion)
+			Represents overall risk density
+		Multiple qualitative motifs
+			Represent danger axes
+	No numbers are shown.
+	No success prediction is shown.
+
+PLAYER-SELECTED DIFFICULTY
+	Difficulty is never automatic.
+	Difficulty is always chosen during portal creation.
+	Players can add modifiers that increase danger axes.
+	Higher danger:
+		Increases rewards
+		Increases prestige yield
+		Increases risk
+	Failure is always attributable to player choice.
+
+CHARACTER-RELATIVE PERCEPTION
+	Portals are absolute.
+	Characters perceive strain relative to their strengths.
+	Only partial, axis-specific strain signals are shown.
+	No aggregate “easy/hard” verdict is ever shown.
+	The game never tells the player which character will win.
+
+TWINKING AND EARLY GAME SKIPPING
+	Gear sharing is allowed.
+	Portal slots are limited.
+	Opening high-risk portals displaces low-risk ones.
+	Power-leveling new characters costs opportunity.
+	Skipping early content is allowed but never free.
+
+SAVE SYSTEM
+	Saving:
+		Is only allowed in safe hub areas
+		Costs a resource
+		Cost scales slowly with depth or frequency
+	Saving is a strategic decision, not a convenience.
+	There is no save scumming.
+	There is no forced save starvation.
+
+RETIREMENT
+	Characters can retire voluntarily or be forced to retire at zero lives.
+	Retirement is never deletion.
+	Retired characters remain visible in the gallery.
+
+LEGACY SYSTEM
+	When a character retires, legacy is distributed through channels:
+	Knowledge Legacy
+		Crafting unlocks
+		Construct archetypes
+		System access
+	Material Legacy
+		Partial retention of rare materials
+	Artifact Legacy
+		Items are distilled, not transferred
+		Results in blueprints, shards, or weakened heirlooms
+	Legacy is proportional to investment and risk taken.
+
+BLAZE OF GLORY INCENTIVE
+	High-risk actions near the end of a character’s life:
+		Increase prestige yield
+		Improve legacy quality
+	Failure still produces value.
+	Success produces more.
+	Players are encouraged, not forced, to push limits.
+
+LONG-TERM PLAY STRUCTURE
+	Hours
+		Tactical combat and immediate decisions
+	Days
+		Crafting goals and portal planning
+	Weeks
+		Character specialization and region mastery
+	Months
+		Prestige cycles and meta-unlocks
+	Years (optional)
+		System expansion without invalidating legacy
+
+NARRATIVE APPROACH
+	The game can function without dialogue or explicit lore.
+	Story emerges from:
+		Deaths
+		Recoveries
+		Retirements
+		Legacy
+	Characters are husks.
+	The Wisp is the constant.
+	The world explains itself through systems.
+	One-sentence summary of the ending
+		The player defeats an apparent antagonist, only to briefly glimpse a higher abstraction layer where both Wisps are reduced to objects, before being quietly returned to the game—now aware that progression was never about escape, but participation.
+
+CORE DESIGN THESIS
+	Progress is defined by decisions, not numbers.
+	Risk is chosen, not imposed.
+	Failure creates new gameplay.
+	Characters matter.
+	Legacy outlives any single run.

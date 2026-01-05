@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"guid_generate",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"guid_generate",
+  "parent":{
+    "name":"UnsortedScripts",
+    "path":"folders/Assets/UnsortedScripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
