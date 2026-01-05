@@ -25,4 +25,31 @@ if (asset_get_index("suite") != -1) suite(function() {
             expect(is_callable(Logger)).toBeTruthy();
         });
     });
+
+    section("Serialization", function() {
+        test("EntitySerializer roundtrip preserves id/type/components", function() {
+            var e = new Entity("e_1", "player");
+            e.addComponent(new Component("Stats", { hp: 10, mp: 5 }));
+            e.addComponent(new Component("Tags", { elite: false }));
+
+            var ser = new EntitySerializer();
+            var bytes = ser.serialize(e);
+            var e2 = ser.deserialize(bytes);
+
+            expect(e2.id).toBe("e_1");
+            expect(e2.typeId).toBe("player");
+            expect(array_length(e2.components)).toBe(2);
+            expect(e2.getComponent("Stats").data.hp).toBe(10);
+            expect(e2.getComponent("Stats").data.mp).toBe(5);
+            expect(e2.getComponent("Tags").data.elite).toBeFalsy();
+        });
+
+        test("SerializerRegistry register/get works for valid serializer", function() {
+            var reg = new SerializerRegistry();
+            var ok = reg.register("Entity", new EntitySerializer());
+            expect(ok).toBeTruthy();
+            expect(is_undefined(reg.get("Entity"))).toBeFalsy();
+            reg.destroy();
+        });
+    });
 });

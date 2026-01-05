@@ -30,5 +30,45 @@ if (asset_get_index("suite") != -1) suite(function() {
             expect(report.ok).toBeFalsy();
             expect(array_length(report.errors)).toBeGreaterThan(0);
         });
+
+        test("validate detects duplicate ids within hub entities", function() {
+            var checker = new IntegrityChecker(new Logger());
+            var w = test_make_world(1);
+
+            w.hub.entities = ["dup", "dup"];
+            var report = checker.validate(w);
+            expect(report.ok).toBeFalsy();
+            expect(array_length(report.errors)).toBeGreaterThan(0);
+        });
+
+        test("validate detects duplicate ids within a portal's droppedItems", function() {
+            var checker = new IntegrityChecker(new Logger());
+            var w = test_make_world(1);
+
+            var inst = w.portals.get("p_0");
+            inst.droppedItems = ["drop_x", "drop_x"];
+
+            var report = checker.validate(w);
+            expect(report.ok).toBeFalsy();
+            expect(array_length(report.errors)).toBeGreaterThan(0);
+        });
+
+        test("validate flags invalid/empty entity ids", function() {
+            var checker = new IntegrityChecker(new Logger());
+            var w = test_make_world(1);
+
+            w.hub.entities = [""]; // invalid id
+            var report = checker.validate(w);
+            expect(report.ok).toBeFalsy();
+            expect(array_length(report.invalidIds)).toBeGreaterThan(0);
+        });
+
+        test("validateSnapshot flags invalid schemaVersion", function() {
+            var checker = new IntegrityChecker(new Logger());
+            var snap = Snapshot_CreateFromPayload("{}", 0);
+            var report = checker.validateSnapshot(snap);
+            expect(report.ok).toBeFalsy();
+            expect(array_length(report.errors)).toBeGreaterThan(0);
+        });
     });
 });

@@ -78,5 +78,45 @@ if (asset_get_index("suite") != -1) suite(function() {
 
             repo.deleteAllSaves();
         });
+
+        test("readHub missing returns undefined (no crash)", function() {
+            var repo = test_repo("test_saves_repo_missing_hub");
+            repo.deleteAllSaves();
+
+            var hubObj = repo.readHub();
+            expect(is_undefined(hubObj)).toBeTruthy();
+
+            repo.deleteAllSaves();
+        });
+
+        test("listPortals empty when none exist", function() {
+            var repo = test_repo("test_saves_repo_empty_portals");
+            repo.deleteAllSaves();
+
+            var portalIds = repo.listPortals();
+            expect(array_length(portalIds)).toBe(0);
+
+            repo.deleteAllSaves();
+        });
+
+        test("readHub invalid JSON throws (caller must handle)", function() {
+            var repo = test_repo("test_saves_repo_invalid_json");
+            repo.deleteAllSaves();
+
+            // Write an invalid hub.json payload.
+            var f = file_text_open_write("test_saves_repo_invalid_json/hub.json");
+            file_text_write_string(f, "{ this is not valid json ");
+            file_text_close(f);
+
+            var threw = false;
+            try {
+                var _ = repo.readHub();
+            } catch (e) {
+                threw = true;
+            }
+            expect(threw).toBeTruthy();
+
+            repo.deleteAllSaves();
+        });
     });
 });
