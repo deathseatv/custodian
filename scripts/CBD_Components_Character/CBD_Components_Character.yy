@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"CBD_Components_Character",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"CBD_Components_Character",
+  "parent":{
+    "name":"BundleD",
+    "path":"folders/Bundles/BundleD.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

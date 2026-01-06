@@ -1,0 +1,180 @@
+ARPG Vertical Slices & Bundles (Reorganized)
+Generated: 2026-01-05
+Indentation: Tabs only
+
+================================================================
+BUNDLE TIERS
+================================================================
+
+Tier 0 – Foundation (Must be stable before any gameplay)
+	Bundle A – Persistence & World-State Backbone
+		Status: COMPLETE
+		Provides:
+			- Slot-based save/load
+			- Snapshot system
+			- Hub/portal scoped persistence
+			- Versioning, migration, integrity checks
+			- Debug tooling
+
+Tier 1 – Cross-Bundle Spine (First playable loop)
+	Bundle D – Hub & Character Lifecycle
+	Bundle E – Portal Lifecycle & Stasis
+	Bundle B – Intent-Based Input (Partial early)
+	Bundle C – Combat Core (Partial early)
+	Bundle J – Audio Routing (Minimal early)
+
+Tier 2 – Content & Progression
+	Bundle F – Items / Inventory / Equipment
+	Bundle G – Abilities / Constructs
+	Bundle H – Mastery / Prestige / Legacy
+	Bundle I – Portal Crafting / Difficulty Axes
+
+================================================================
+VERTICAL SLICES
+================================================================
+
+Slice 0 – Project Boot + Baseline Persistence
+	Tier: 0
+	Dependencies:
+		- Bundle A
+	Status:
+		COMPLETE (validated by tests + runtime)
+	Scope:
+		- Game boot
+		- WorldState construction
+		- Slot save/load
+		- Snapshot resume
+		- Hub/portal file separation
+
+------------------------------------------------------------
+
+Slice 1 – Hub Navigation + Inhabit Character
+	Tier: 1 (Spine Step 1)
+	Dependencies:
+		- Bundle D
+		- Bundle A
+		- Bundle J (minimal)
+		- Bundle B (stub only, optional)
+	Minimum Viable:
+		- Visible hub room
+		- Wisp movement (keyboard acceptable)
+		- Character husks / gallery
+		- Inhabit confirmation prompt
+		- Controlled-entity swap (Wisp → Character)
+		- Persist inhabitedCharacterId
+
+------------------------------------------------------------
+
+Slice 2 – Single Portal Open / Enter / Exit
+	Tier: 1 (Spine Step 2)
+	Dependencies:
+		- Bundle E
+		- Bundle D
+		- Bundle A
+		- Bundle J (minimal)
+	Minimum Viable:
+		- One portal slot (Empty → Open)
+		- Enter portal from hub
+		- Arena room transition
+		- Exit back to hub
+		- Portal instance persistence
+
+------------------------------------------------------------
+
+Slice 3 – Click-to-Move + Highlight Intent
+	Tier: 1 (Spine Step 3)
+	Dependencies:
+		- Bundle B (core)
+		- Bundle D
+		- Bundle J (minimal)
+	Minimum Viable:
+		- Click-to-move in logical 2D space
+		- Hover highlight for interactables
+		- Simple priority rules
+		- No full intent matrix yet
+
+------------------------------------------------------------
+
+Slice 4 – One Enemy + Click-to-Attack
+	Tier: 1 (Spine Step 4)
+	Dependencies:
+		- Bundle C (combat core)
+		- Bundle B (attack intent)
+		- Bundle J (minimal)
+	Minimum Viable:
+		- One enemy type
+		- Discrete attack pipeline
+		- Health, damage, death
+		- Logical-space targeting
+
+	NOTE:
+		End of Slice 4 = First Ideal Playable Vertical Slice
+
+------------------------------------------------------------
+
+Slice 5 – Item Drop + Hub Stash
+	Tier: 2
+	Dependencies:
+		- Bundle F
+		- Bundle B
+		- Bundle A
+		- Bundle J
+	Minimum Viable:
+		- Item drop on enemy death
+		- Pickup interaction
+		- Shared hub inventory
+
+------------------------------------------------------------
+
+Slice 6 – Character Death + Wisp Return
+	Tier: 2
+	Dependencies:
+		- Bundle C
+		- Bundle D
+		- Bundle B
+		- Bundle J
+	Minimum Viable:
+		- Character death handling
+		- Return to Wisp control
+		- Persist death state
+
+------------------------------------------------------------
+
+Slice 7 – Portal Dormant State + Dropped Item Persistence
+	Tier: 2
+	Dependencies:
+		- Bundle E
+		- Bundle A
+		- Bundle F
+		- Bundle D
+	Minimum Viable:
+		- Dormant portals
+		- Item persistence inside portals
+
+------------------------------------------------------------
+
+Slice 8 – Mid-Expedition Return + Portal Stasis
+	Tier: 2
+	Dependencies:
+		- Bundle E
+		- Bundle D
+		- Bundle B
+		- Bundle C
+		- Bundle A
+	Minimum Viable:
+		- Return-to-hub channel
+		- Portal pause/resume semantics
+
+================================================================
+IMPLEMENTATION GUIDELINES
+================================================================
+
+- Do NOT complete bundles in isolation.
+- Implement only the minimum cut of each bundle required for the current slice.
+- Always add debug visibility before advancing slices.
+- Persistence (Bundle A) is authoritative across all slices.
+- Early input and combat systems are intentionally incomplete stubs.
+
+================================================================
+END OF FILE
+================================================================

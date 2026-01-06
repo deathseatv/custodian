@@ -36,7 +36,9 @@ function SaveSystem(_repo, _serializerRegistry, _versionManager, _integrityCheck
             if (!report.ok) logger.warn("WorldState validation failed; proceeding per policy.");
 
             // 1) Write hub + global + active context
-            repo.writeHub(worldState.schemaVersion, worldState.hub, worldState.activeContext, worldState.globalState);
+            var entitiesArr = EntityRegistry_ToStruct(worldState.entityRegistry);
+			repo.writeHub(worldState.schemaVersion, worldState.hub, worldState.activeContext, worldState.globalState, entitiesArr);
+
 
             // 2) Write each portal instance separately
             var portalIds = worldState.portals.keys();
@@ -76,10 +78,17 @@ function SaveSystem(_repo, _serializerRegistry, _versionManager, _integrityCheck
         payloadHub = _applyMigrationsIfNeeded(schemaVersion, payloadHub);
 
         var world = new WorldState();
-        world.schemaVersion = payloadHub.schemaVersion;
-        world.hub = HubState_FromStruct(payloadHub.data.hub);
-        world.activeContext = ActiveContext_FromStruct(payloadHub.data.activeContext);
-        world.globalState = payloadHub.data.globalState;
+		world.schemaVersion = payloadHub.schemaVersion;
+		world.hub = HubState_FromStruct(payloadHub.data.hub);
+		world.activeContext = ActiveContext_FromStruct(payloadHub.data.activeContext);
+		world.globalState = payloadHub.data.globalState;
+
+		// Bundle D integration
+		if (!is_undefined(payloadHub.data) && is_struct(payloadHub.data) && variable_struct_exists(payloadHub.data, "entities")) {
+		    world.entityRegistry = EntityRegistry_FromStruct(payloadHub.data.entities);
+		} else {
+		    world.entityRegistry = new EntityRegistry();
+		}
 
         // portals
         var portalIds = repo.listPortals();

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"test_CBD_suite",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"test_CBD_suite",
+  "parent":{
+    "name":"BundleD",
+    "path":"folders/Tests/BundleD.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

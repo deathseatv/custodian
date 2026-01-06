@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"CBD_BundleD_Enums",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"CBD_BundleD_Enums",
+  "parent":{
+    "name":"BundleD",
+    "path":"folders/Bundles/BundleD.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

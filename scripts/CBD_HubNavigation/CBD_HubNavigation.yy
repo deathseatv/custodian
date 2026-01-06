@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"CBD_HubNavigation",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"CBD_HubNavigation",
+  "parent":{
+    "name":"BundleD",
+    "path":"folders/Bundles/BundleD.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

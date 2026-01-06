@@ -1,4 +1,4 @@
-/// Bundle A Persistence Backbone - GML 2.3+ (struct-based "classes")
+ /// Bundle A Persistence Backbone - GML 2.3+ (struct-based "classes")
 /// Generated: 20260104222854 UTC
 /// Notes:
 /// - Pragmatic stubs meant to be expanded in your project.

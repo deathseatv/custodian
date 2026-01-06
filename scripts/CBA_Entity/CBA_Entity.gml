@@ -7,7 +7,10 @@
 
 /// @desc ECS-style Entity holding components.
 function Entity(_id, _typeId) constructor {
-    id = is_undefined(_id) ? string(uuid_generate()) : string(_id);
+        // Generate id without relying on an external uuid_generate() script.
+    // Use MD5(time|timer|random) for a stable, filesystem-friendly 32-char hex id.
+    var _seed = string(date_current_datetime()) + "|" + string(get_timer()) + "|" + string(irandom_range(0, 2147483647));
+    id = is_undefined(_id) ? md5_string_utf8(_seed) : string(_id);
     typeId = string(_typeId);
     components = [];
 

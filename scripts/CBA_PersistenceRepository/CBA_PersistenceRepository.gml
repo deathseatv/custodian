@@ -133,15 +133,18 @@ function PersistenceRepository(_rootDir, _logger) constructor {
     };
 
     /// -------------------- Hub / Portal scoped persistence --------------------
-    writeHub = function(schemaVersion, hubState, activeContext, globalState) {
-        var obj = {
-            schemaVersion: schemaVersion,
-            hub: hubState.toStruct(),
-            activeContext: activeContext.toStruct(),
-            globalState: globalState
-        };
-        return _writeJsonFile(_hubPath(), obj);
-    };
+	writeHub = function(schemaVersion, hubState, activeContext, globalState, _entitiesArr) {
+	    var obj = {
+	        schemaVersion: schemaVersion,
+	        hub: hubState.toStruct(),
+	        activeContext: activeContext.toStruct(),
+	        globalState: globalState,
+
+	        // Bundle D integration (optional)
+	        entities: is_undefined(_entitiesArr) ? [] : _entitiesArr
+	    };
+	    return _writeJsonFile(_hubPath(), obj);
+	};
 
     readHub = function() {
         return _readJsonFile(_hubPath());

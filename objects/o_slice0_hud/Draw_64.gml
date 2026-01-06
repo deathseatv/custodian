@@ -4,7 +4,7 @@ draw_set_color(c_white);
 
 var _y = 16;
 
-draw_text(16, _y, "Slice 0 Verif_y"); _y += 20;
+draw_text(16, _y, "Slice 0 Verify"); _y += 20;
 
 if (is_undefined(global.world)) {
     draw_text(16, _y, "global.world: undefined"); _y += 20;
@@ -29,4 +29,4 @@ if (is_undefined(global.world)) {
     draw_text(16, _y, "slice0_counter: " + string(v)); _y += 20;
 }
 
-draw_text(16, _y, "Ke_ys: [R]=randomize counter, [S]=save, [L]=reload"); _y += 20;
+draw_text(16, _y, "Keys: [R]=randomize counter, [S]=save, [L]=reload"); _y += 20;
