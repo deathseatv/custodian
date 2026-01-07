@@ -20,6 +20,18 @@ function PortalRegistryState() constructor {
         _map[? k] = portalInstanceState;
     };
 
+    /// @desc True if a portalId exists in the registry.
+    has = function(portalId) {
+        var k = string(portalId);
+        return ds_map_exists(_map, k);
+    };
+
+    /// @desc Remove a portalId from the registry if present.
+    remove = function(portalId) {
+        var k = string(portalId);
+        if (ds_map_exists(_map, k)) ds_map_delete(_map, k);
+    };
+
     keys = function() {
         return ds_map_keys_to_array(_map);
     };

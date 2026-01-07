@@ -1,5 +1,5 @@
 /// o_hub_runtime : Create
-hub = new HubController(global.world);
+hub = new HubController(global.world, global.persist_repo);
 hub.init(global.world);
 
 Slice1_RebuildHubFromWorld();

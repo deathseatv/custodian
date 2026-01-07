@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"CBE_PortalLifecycleController",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"CBE_PortalLifecycleController",
+  "parent":{
+    "name":"BundleE",
+    "path":"folders/Bundles/BundleE.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

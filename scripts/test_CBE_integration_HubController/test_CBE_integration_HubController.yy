@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"test_CBE_integration_HubController",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"test_CBE_integration_HubController",
+  "parent":{
+    "name":"BundleE",
+    "path":"folders/Tests/BundleE.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

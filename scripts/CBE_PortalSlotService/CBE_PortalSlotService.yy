@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"CBE_PortalSlotService",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"CBE_PortalSlotService",
+  "parent":{
+    "name":"BundleE",
+    "path":"folders/Bundles/BundleE.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

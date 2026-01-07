@@ -17,8 +17,8 @@ if (inhab != undefined) {
 
 // Use numeric key codes to avoid ord() collisions:
 // A=65 D=68 W=87 S=83
-var dx = keyboard_check(68) - keyboard_check(65);
-var dy = keyboard_check(83) - keyboard_check(87);
+var dx = original_keyboard_check(68) - original_keyboard_check(65);
+var dy = original_keyboard_check(83) - original_keyboard_check(87);
 
 x += dx * move_speed;
 y += dy * move_speed;
