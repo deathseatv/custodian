@@ -7,14 +7,14 @@ if (keyboard_check_pressed(ord("R"))) {
         global.world.globalState.slice0_counter = irandom(999999);
     }
 }
-
+/*
 // Manual save
 if (keyboard_check_pressed(ord("S"))) {
     if (!is_undefined(global.save_system) && !is_undefined(global.world)) {
         global.save_system.saveGame(global.save_slot, global.world);
     }
 }
-
+*/
 // Manual reload (re-reads slot pointer + snapshot)
 if (keyboard_check_pressed(ord("L"))) {
     if (!is_undefined(global.save_system)) {

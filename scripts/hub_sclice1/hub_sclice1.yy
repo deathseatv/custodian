@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"hub_sclice1",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"hub_sclice1",
+  "parent":{
+    "name":"Slice1",
+    "path":"folders/Slices/Slice1.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

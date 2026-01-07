@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"aud",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"aud",
+  "parent":{
+    "name":"Slice1",
+    "path":"folders/Slices/Slice1.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

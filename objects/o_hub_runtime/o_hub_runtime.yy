@@ -1,16 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"o_slice0_hud",
+  "%Name":"o_hub_runtime",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"o_slice0_hud",
+  "name":"o_hub_runtime",
   "overriddenProperties":[],
   "parent":{
-    "name":"Slice0",
-    "path":"folders/Slices/Slice0.yy",
+    "name":"Slice1",
+    "path":"folders/Slices/Slice1.yy",
   },
   "parentObjectId":null,
   "persistent":false,
